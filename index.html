@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<base target="_top">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #eef5ff, #f8fbff, #eefaf4);
+}
+  color: #111;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 15px;
+}
+
+.header {
+  background: linear-gradient(135deg, #111 0%, #333 100%);
+  color: white;
+  padding: 12px 10px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 18px !important;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.header p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #dddddd;
+  font-weight: 500;
+}
+
+.input-box {
+  background: linear-gradient(135deg, #ffffff, #f1f7ff);
+  border: 1px solid #dce8f5;
+  border-radius: 18px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+  padding: 14px;
+}
+
+label {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e21b23, #b51219);
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(226, 27, 35, 0.25);
+  transition: 0.2s;
+}
+
+.salary {
+  background: white;
+  padding: 18px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.result-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.cars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.car {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0,0,0,.08);
+}
+
+.car-image {
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  background: white;
+}
+
+.car-content {
+  padding: 18px;
+}
+
+.car-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.variant-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #222;
+}
+
+.variant-box {
+  background: #f0fff4;
+  border: 1px solid #b7ebc6;
+  border-left: 5px solid #25D366;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.variant-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.variant-salary {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+.monthly-box {
+  background: #f1fff5;
+  border: 1px solid #b7ebc6;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 10px;
+}
+
+.monthly-label {
+  font-size: 13px;
+  color: #555;
+}
+
+.monthly-amount {
+  font-size: 22px;
+  font-weight: bold;
+  color: #16a34a;
+  margin-top: 3px;
+}
+.variant-box.not-eligible {
+  background: #fff5f5;
+  border: 1px solid #ffcaca;
+  border-left: 5px solid #dc3545;
+}
+
+.variant-box.not-eligible .variant-name {
+  color: #dc3545;
+}
+select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.monthly {
+  background: #f1f3f5;
+  padding: 13px;
+  border-radius: 10px;
+  margin-bottom: 13px;
+}
+
+.monthly strong {
+  color: #e21b23;
+  font-size: 20px;
+}
+
+.whatsapp {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: #25D366;
+  color: white;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.note {
+  text-align: center;
+  color: #777;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+
+/* PHONE */
+
+@media(max-width:700px) {
+
+  .container {
+    padding: 12px;
+  }
+
+  .header h1 {
+    font-size: 25px;
+  }
+
+  .cars {
+    grid-template-columns: 1fr;
+  }
+
+  .car-image {
+    height: 220px;
+  }
+
+}
+.logo {
+  width: 70px;
+  max-width: 25%;
+  height: auto;
+  display: block;
+  margin: 0 auto 6px;
+  border-radius: 8px;
+}
+/* PAPARAN COMPACT */
+.container {
+  max-width: 850px;
+  padding: 10px;
+}
+
+.header {
+  padding: 18px 15px;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  font-size: 25px;
+}
+
+.header p {
+  font-size: 12px;
+  margin: 5px 0 0;
+}
+
+.input-box {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.btn {
+  padding: 11px;
+  font-size: 16px;
+}
+
+.salary {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.result-title {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.cars {
+  gap: 8px;
+}
+
+.car {
+  border-radius: 10px;
+}
+
+.car-image {
+  height: 110px;
+}
+
+.car-content {
+  padding: 8px;
+}
+
+.car-name {
+  font-size: 16px;
+}
+
+.variant-title {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.variant-box {
+  padding: 7px;
+  margin-bottom: 5px;
+}
+
+.variant-name {
+  font-size: 13px;
+}
+
+.variant-salary {
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+.monthly-box {
+  padding: 6px;
+  margin-top: 5px;
+}
+
+.monthly-label {
+  font-size: 10px;
+}
+
+.monthly-amount {
+  font-size: 18px;
+}
+/* JADUAL SEMAK GAJI */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.eligibility-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  font-size: 12px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.eligibility-table th {
+  background: #111;
+  color: white;
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.eligibility-table td {
+  padding: 8px 5px;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 13px;
+}
+/* KEMASKAN RUANG DALAM TABLE */
+.eligibility-table td {
+  padding: 10px 6px;
+}
+
+.eligibility-table tbody tr {
+  height: 82px;
+}
+
+.eligibility-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* STATUS */
+.status-yes,
+.status-no {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+/* VARIANT */
+.variant-pill {
+  display: inline-block;
+  padding: 4px 8px;
+  margin: 2px;
+  border-radius: 20px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  font-size: 10px;
+}
+
+/* RUANG TABLE LEBIH KEMAS */
+.eligibility-table {
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.model-cell {
+  text-align: left !important;
+  min-width: 100px;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.model-cell img {
+  width: 75px;
+  height: 45px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 2px;
+}
+/* 🚗 ANIMASI KERETA PREMIUM */
+
+.car-animation {
+  position: relative;
+  width: 90px;
+  height: 52px;
+  margin: 0 auto 3px auto;
+  overflow: hidden;
+}
+
+/* 🛣️ Jalan */
+.car-animation::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  height: 5px;
+  background: #555;
+  border-radius: 10px;
+  box-shadow:
+    15px 0 0 -1px #888,
+    35px 0 0 -1px #888,
+    55px 0 0 -1px #888,
+    75px 0 0 -1px #888;
+}
+
+/* 🚗 Kereta */
+.car-animation {
+  position: relative;
+  width: 90px;
+  height: 52px;
+  margin: 0 auto 3px auto;
+  overflow: hidden;
+}
+
+.car-animation::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  height: 5px;
+  background: #777;
+  border-radius: 10px;
+}
+
+/* Kereta */
+.car-animation .table-car-image {
+  position: absolute;
+  z-index: 2;
+  width: 75px !important;
+  height: 45px !important;
+  object-fit: contain !important;
+  left: 0;
+  top: 0;
+  margin: 0 !important;
+}
+
+/* Animasi wrapper */
+.car-animation {
+  animation: keretaJalan 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes keretaJalan {
+  0% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  100% {
+    transform: translateX(-5px);
+  }
+}
+/* ================================= */
+/* SAMAKAN SAIZ & ARAH KERETA */
+/* ================================= */
+
+/* SAGA */
+.eligibility-table tbody tr:nth-child(1) .table-car-image {
+  width: 75px !important;
+  height: 45px !important;
+  transform: scale(0.90) !important;
+}
+
+/* S70 MC2 */
+.eligibility-table tbody tr:nth-child(2) .table-car-image {
+  width: 75px !important;
+  height: 45px !important;
+  transform: scale(0.85) !important;
+}
+
+/* S70 MC1 - FLIP */
+.eligibility-table tbody tr:nth-child(3) .table-car-image {
+  width: 75px !important;
+  height: 45px !important;
+  transform: scaleX(-1) scale(0.95) !important;
+}
+
+/* X50 */
+.eligibility-table tbody tr:nth-child(4) .table-car-image {
+  width: 75px !important;
+  height: 45px !important;
+  transform: scale(0.90) !important;
+}
+
+/* X70 - FLIP */
+.eligibility-table tbody tr:nth-child(5) .table-car-image {
+  width: 75px !important;
+  height: 45px !important;
+  transform: scaleX(-1) scale(0.90) !important;
+}
+
+/* X90 */
+.eligibility-table tbody tr:nth-child(6) .table-car-image {
+  width: 75px !important;
+  height: 45px !important;
+  transform: scale(0.82) !important;
+}
+}
+.model-cell strong {
+  display: block;
+  margin-top: 0;
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.status-yes {
+  background: #dff7e5;
+  color: #16833b;
+  padding: 4px 7px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.status-no {
+  background: #ffe3e3;
+  color: #d63031;
+  padding: 4px 7px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.variant-pill {
+  display: inline-block;
+  background: #f1f3f5;
+  border: 1px solid #d5d5d5;
+  border-radius: 12px;
+  padding: 3px 7px;
+  margin: 2px 1px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.monthly-small {
+  font-size: 10px;
+  margin: 2px 0;
+  white-space: nowrap;
+}
+
+.monthly-small b {
+  color: #16833b;
+}
+
+.no-variant {
+  color: #999;
+}
+/* ===== MODE COMPACT - PAPAR SEMUA MODEL ===== */
+
+body {
+  margin: 0;
+  padding: 8px;
+  font-size: 12px;
+  background: linear-gradient(135deg, #e8f4ff 0%, #b9ddff 50%, #dff1ff 100%);
+
+.container {
+  max-width: 100%;
+  padding: 8px;
+}
+
+/* Header lebih pendek */
+.header {
+  padding: 15px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.header img {
+  width: 55px;
+  height: 55px;
+}
+
+.header h1 {
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.header p {
+  font-size: 11px;
+  margin: 3px 0;
+}
+
+.phone {
+  font-size: 12px;
+}
+
+/* Kotak gaji */
+.input-box {
+  margin: 8px 0;
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  padding: 10px 12px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.input-box label {
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.input-box input {
+  padding: 5px 10px;
+  font-size: 14px;
+  height: 25px;
+  box-sizing: border-box;
+}
+
+.btn {
+  height: 38px;
+  padding: 6px;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* Jadual */
+.table-wrapper {
+  margin-top: 8px;
+  overflow: visible;
+}
+
+.eligibility-table {
+  width: 100%;
+  table-layout: fixed;
+  font-size: 10px;
+}
+
+.eligibility-table th {
+  padding: 5px 3px;
+  font-size: 9px;
+}
+
+.eligibility-table td {
+  padding: 4px 2px;
+  font-size: 9px;
+  line-height: 1.1;
+}
+
+/* Model */
+.model-cell {
+  min-width: 0 !important;
+  width: 25%;
+  font-size: 9px;
+}
+
+.model-cell img {
+  width: 42px;
+  height: 25px;
+  margin: 0 auto 1px;
+}
+
+/* Status */
+.status-yes {
+  background: #dcfce7 !important;
+  color: #15803d !important;
+  padding: 5px 10px !important;
+  border-radius: 20px !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  display: inline-block;
+  border: 1px solid #bbf7d0;
+}
+
+.status-no {
+  background: #fee2e2 !important;
+  color: #dc2626 !important;
+  padding: 5px 10px !important;
+  border-radius: 20px !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  display: inline-block;
+  border: 1px solid #fecaca;
+}
+
+/* Variant */
+.variant-pill {
+  padding: 2px 4px;
+  margin: 1px;
+  font-size: 8px;
+  border-radius: 8px;
+}
+
+/* Bulanan */
+.monthly-small {
+  font-size: 12px;
+  margin: 3px 0;
+  line-height: 1.3;
+}
+
+.monthly-small b {
+  font-size: 14px;
+  color: #15803d;
+  font-weight: 800;
+}
+
+/* Nota */
+.note {
+  font-size: 8px;
+  margin-top: 5px;
+  padding: 3px;
+}
+
+/* Jangan bagi jadual paksa scroll */
+.table-wrapper {
+  overflow-x: visible;
+  overflow-y: visible;
+}
+/* ===== TIKTOK LIVE PHONE ===== */
+
+@media screen and (max-width: 600px) {
+
+  body {
+    margin: 0;
+    padding: 4px;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .header {
+    padding: 10px 6px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .header p {
+    font-size: 9px;
+    margin-top: 3px;
+  }
+
+  .phone {
+    font-size: 10px;
+  }
+
+  input,
+  select {
+    height: 30px;
+    font-size: 11px;
+  }
+
+  .btn {
+    height: 32px;
+    font-size: 11px;
+    padding: 4px;
+    margin-bottom: 5px;
+  }
+
+  .table-wrapper {
+    width: 100%;
+    overflow: hidden !important;
+  }
+
+  .eligibility-table {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 7px;
+  }
+
+  .eligibility-table th {
+    padding: 4px 1px;
+    font-size: 7px;
+  }
+
+  .eligibility-table td {
+    padding: 3px 1px;
+    font-size: 7px;
+  }
+
+  .model-cell {
+    min-width: 0 !important;
+    width: 22%;
+    font-size: 7px !important;
+  }
+
+  .model-cell img {
+    width: 38px !important;
+    height: 24px !important;
+  }
+
+  .status-yes,
+  .status-no {
+    font-size: 6px;
+    padding: 2px 3px;
+  }
+
+  .variant-pill {
+    font-size: 6px;
+    padding: 2px 3px;
+    margin: 1px;
+  }
+
+  .monthly-small {
+    font-size: 6px;
+    margin: 1px 0;
+  }
+
+  .monthly-small b {
+    font-size: 7px;
+  }
+
+  .note {
+    font-size: 6px;
+    line-height: 1.1;
+  }
+}
+/* MODE TIKTOK LIVE - LAPTOP */
+@media (min-width: 601px) {
+  body {
+    zoom: 1;
+  }
+
+  .container {
+    width: 480px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+/* BETULKAN JADUAL TIKTOK LIVE */
+@media (min-width: 601px) {
+
+  .eligibility-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .eligibility-table th,
+  .eligibility-table td {
+    padding: 6px 4px;
+    font-size: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .eligibility-table th:nth-child(1),
+  .eligibility-table td:nth-child(1) {
+    width: 22%;
+  }
+
+  .eligibility-table th:nth-child(2),
+  .eligibility-table td:nth-child(2) {
+    width: 14%;
+  }
+
+  .eligibility-table th:nth-child(3),
+  .eligibility-table td:nth-child(3) {
+    width: 29%;
+  }
+
+  .eligibility-table th:nth-child(4),
+  .eligibility-table td:nth-child(4) {
+    width: 35%;
+  }
+
+  .monthly-small {
+    white-space: normal !important;
+    font-size: 8px;
+  }
+
+  .monthly-small b {
+    font-size: 9px;
+  }
+
+  .model-cell {
+    min-width: 0 !important;
+  }
+}
+/* MODE TIKTOK LIVE - KEMAS */
+@media (min-width: 601px) {
+
+  .eligibility-table {
+    width: 100% !important;
+    table-layout: fixed !important;
+  }
+
+  .eligibility-table th,
+  .eligibility-table td {
+    padding: 7px 4px !important;
+    font-size: 9px !important;
+    vertical-align: middle !important;
+  }
+
+  .eligibility-table th:nth-child(1),
+  .eligibility-table td:nth-child(1) {
+    width: 20% !important;
+  }
+
+  .eligibility-table th:nth-child(2),
+  .eligibility-table td:nth-child(2) {
+    width: 15% !important;
+  }
+
+  .eligibility-table th:nth-child(3),
+  .eligibility-table td:nth-child(3) {
+    width: 30% !important;
+  }
+
+  .eligibility-table th:nth-child(4),
+  .eligibility-table td:nth-child(4) {
+    width: 35% !important;
+  }
+
+  .model-cell {
+    min-width: 0 !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+  }
+
+  .model-cell strong {
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+
+  .model-cell img {
+    width: 38px !important;
+    height: auto !important;
+    margin-bottom: 3px !important;
+  }
+
+  .status-yes,
+  .status-no {
+    font-size: 8px !important;
+    padding: 3px 5px !important;
+  }
+
+  .variant-pill {
+    font-size: 8px !important;
+    padding: 3px 5px !important;
+    margin: 1px !important;
+  }
+
+  .monthly-small {
+    font-size: 8px !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+  }
+
+  .monthly-small b {
+    font-size: 9px !important;
+  }
+}
+/* KEMASKAN NAMA MODEL */
+.model-cell {
+  min-width: 90px !important;
+  width: 90px !important;
+}
+
+.model-cell strong {
+  display: block;
+  white-space: nowrap !important;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.table-car-image {
+  width: 70px !important;
+  height: 40px !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto 5px auto !important;
+}
+
+/* ANIMASI KERETA */
+.car-animation {
+  position: relative;
+  width: 90px;
+  height: 42px;
+  margin: 0 auto 2px auto;
+  overflow: hidden;
+}
+
+/* Jalan */
+.car-animation::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  bottom: 7px;
+  height: 5px;
+  background: #555;
+  border-radius: 5px;
+  box-shadow:
+    15px 0 0 -1px #777,
+    40px 0 0 -1px #777,
+    65px 0 0 -1px #777;
+}
+
+/* Kereta bergerak */
+.car-animation .table-car-image {
+  position: absolute;
+  z-index: 2;
+  width: 70px !important;
+  height: 38px !important;
+  object-fit: contain !important;
+  left: 7px;
+  top: 0;
+  animation: keretaJalan 2.5s ease-in-out infinite;
+  mix-blend-mode: multiply;
+}
+
+@keyframes keretaJalan {
+  0% {
+    left: 1px;
+  }
+
+  50% {
+    left: 13px;
+  }
+
+  100% {
+    left: 1px;
+  }
+}
+}
+/* BESARKAN S70 MC2 SAHAJA */
+tbody tr:nth-child(2) .table-car-image {
+  width: 80px !important;
+  height: 47px !important;
+}
+tbody tr:nth-child(3) .table-car-image {
+  transform: scaleX(-1);
+}
+/* BESARKAN X90 SAHAJA */
+tbody tr:nth-child(6) .table-car-image {
+width: 85px !important;
+height: 50px !important;
+}
+/* X70 MENGHADAP KANAN */
+tbody tr:nth-child(5) .table-car-image {
+  transform: scaleX(-1);
+}
+
+}
+.car-animation::after {
+  display: none !important;
+}
+.car-animation::after {
+  content: none !important;
+  display: none !important;
+}
+/* LOGO KE TEPI - JIMAT RUANG */
+.header {
+  position: relative;
+  padding: 20px 20px !important;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Logo */
+.header img {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 70px !important;
+  height: 70px !important;
+  object-fit: contain;
+}
+
+/* Tajuk */
+.header h1 {
+  margin: 0 0 5px 0 !important;
+  font-size: 32px !important;
+}
+
+/* Ayat bawah tajuk */
+.header p {
+  margin: 5px 0 !important;
+}
+/* KECILKAN NAMA SHAH PROTONXPERT */
+.header h1 {
+  font-size: 18px !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  letter-spacing: 0 !important;
+}
+/* ===== BACKGROUND NEON ANIMATION ===== */
+
+body {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0, 217, 255, 0.25), transparent 30%),
+    radial-gradient(circle at 85% 25%, rgba(140, 0, 255, 0.25), transparent 30%),
+    radial-gradient(circle at 50% 90%, rgba(0, 255, 170, 0.18), transparent 30%),
+    #07111f;
+
+  background-size: 200% 200%;
+  animation: neonBackground 10s ease-in-out infinite;
+}
+
+/* Gerakan cahaya neon */
+@keyframes neonBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Cahaya bergerak */
+body::before {
+  content: "";
+  position: fixed;
+  width: 280px;
+  height: 280px;
+
+  background: rgba(0, 200, 255, 0.18);
+  filter: blur(80px);
+  border-radius: 50%;
+
+  top: 10%;
+  left: -100px;
+
+  animation: neonMove 8s ease-in-out infinite alternate;
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes neonMove {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(500px, 150px);
+  }
+
+  100% {
+    transform: translate(900px, -50px);
+  }
+}
+/* ===== NEON TABLE ===== */
+
+.table-wrapper {
+  border: 2px solid #00d9ff !important;
+  border-radius: 18px !important;
+
+  box-shadow:
+    0 0 8px rgba(0, 217, 255, 0.6),
+    0 0 20px rgba(0, 217, 255, 0.35),
+    0 0 40px rgba(120, 0, 255, 0.18);
+
+  animation: tableNeon 3s ease-in-out infinite;
+  overflow: hidden;
+}
+
+/* Header jadual */
+.eligibility-table thead {
+  background: linear-gradient(
+    90deg,
+    #050505,
+    #101827,
+    #050505
+  ) !important;
+
+  box-shadow:
+    0 0 12px rgba(0, 217, 255, 0.5);
+}
+
+.eligibility-table th {
+  color: #ffffff !important;
+  text-shadow:
+    0 0 5px rgba(0, 217, 255, 0.8);
+
+  border-bottom: 2px solid #00d9ff !important;
+}
+
+/* Setiap row */
+.eligibility-table tbody tr {
+  background: rgba(255, 255, 255, 0.96);
+
+  transition: all 0.3s ease;
+}
+
+/* Bila mouse lalu */
+.eligibility-table tbody tr:hover {
+  background: #f4fcff;
+
+  box-shadow:
+    inset 0 0 15px rgba(0, 217, 255, 0.15);
+}
+
+/* Garisan antara row */
+.eligibility-table tbody td {
+  border-bottom: 1px solid rgba(0, 217, 255, 0.18) !important;
+}
+
+/* Glow bergerak */
+@keyframes tableNeon {
+  0% {
+    box-shadow:
+      0 0 8px rgba(0, 217, 255, 0.5),
+      0 0 18px rgba(0, 217, 255, 0.25);
+  }
+
+  50% {
+    box-shadow:
+      0 0 12px rgba(0, 217, 255, 0.8),
+      0 0 30px rgba(120, 0, 255, 0.35);
+  }
+
+  100% {
+    box-shadow:
+      0 0 8px rgba(0, 217, 255, 0.5),
+      0 0 18px rgba(0, 217, 255, 0.25);
+  }
+}
+/* ===== ANIMASI KERETA ===== */
+
+.model-cell img {
+  animation: keretaGerak 2.8s ease-in-out infinite;
+}
+
+@keyframes keretaGerak {
+  0% {
+    transform: translateX(-4px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  100% {
+    transform: translateX(-4px);
+  }
+}
+
+
+/* ===== GLOW LULUS ===== */
+
+.variant-pill,
+.status-lulus {
+  animation: glowLulus 2s ease-in-out infinite;
+}
+
+@keyframes glowLulus {
+  0%, 100% {
+    filter: drop-shadow(0 0 0px rgba(37, 211, 102, 0));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 5px rgba(37, 211, 102, 0.65));
+  }
+}
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
+  pointer-events: none;
+}
+</style>
+
+</head>
+
+
+<body>
+  <video class="bg-video" autoplay muted loop playsinline>
+  <source src="https://drive.google.com/uc?export=download&id=1iR1XPF9a5Ks6ecJwcTfY7qrGfK0EyrQw" type="video/mp4">
+</video>
+
+<div class="video-overlay"></div>
+
+<div class="container">
+
+
+<div class="header">
+
+  <img
+    src="https://drive.google.com/thumbnail?id=1z8j0sM9uNlDbEBxsSgeRK2kM1qaRFTng&sz=w1000"
+    class="logo"
+  >
+
+  <h1>SHAH PROTONXPERT</h1>
+
+  <p>Semak Model Proton Berdasarkan Gaji Bersih</p>
+
+  <div class="phone">
+    📞 017-274 1654 
+  </div>
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>Gaji Bersih Bulanan</label>
+
+<input
+  type="number"
+  id="salary"
+  placeholder="Contoh: 2500"
+  onkeydown="if(event.key === 'Enter'){ semakGaji(); }"
+>
+
+
+
+
+
+</div>
+
+
+<div id="result"></div>
+
+
+<div class="note">
+
+*Semakan ini adalah anggaran sahaja.
+Kelayakan pembiayaan tertakluk kepada penilaian
+dan kelulusan pihak bank.
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* ================================
+   MASUKKAN ID GOOGLE DRIVE GAMBAR
+   ================================ */
+
+
+var gambar = {
+
+  saga:
+  "1hMA6mSyE_Iug63U9XnKR-OvN766-jOXw",
+
+  s70mc2:
+  "1Pep8cdcsVBCnW8uRlF05dh5WcjEF4MLI",
+
+  s70mc1:
+  "1GJ6iFYGBq7k0113XtaubCSjgTnx6tzYh",
+
+  x50:
+  "1qqGC4URLVte_h3Mbb6dXRbNeSWnZ2Svw",
+
+  x70:
+  "1vGtipNKTqWvPhUygDpI0n2zfmkSbUHa-",
+
+  x90:
+  "1t5aedhMAtUyybkk3TBaDDbHPY2mftO3v"
+
+};
+
+
+/* ================================
+   DATA KERETA
+   ================================ */
+
+
+var carData = {
+
+  "Proton Saga": {
+    image: gambar.saga,
+    variants: [
+      { name: "Standard", minSalary: 1800, price: 40300, loan90: 423, fullLoan: 470 },
+      { name: "Executive", minSalary: 1900, price: 46500, loan90: 488, fullLoan: 542 },
+      { name: "Premium", minSalary: 2000, price: 51600, loan90: 542, fullLoan: 602 }
+    ]
+  },
+
+  "Proton S70 MC2": {
+    image: gambar.s70mc2,
+    variants: [
+      { name: "Lite", minSalary: 2100, price: 58700, loan90: 590, fullLoan: 656 },
+      { name: "Prime", minSalary: 2200, price: 61800, loan90: 621, fullLoan: 690 }
+    ]
+  },
+
+  "Proton S70 MC1": {
+    image: gambar.s70mc1,
+    variants: [
+      { name: "Premium", minSalary: 2800, price: 82300, loan90: 852, fullLoan: 947 },
+      { name: "Flagship", minSalary: 2900, price: 92600, loan90: 959, fullLoan: 1065 },
+      { name: "Flagship X", minSalary: 3100, price: 97700, loan90: 1012, fullLoan: 1124 }
+    ]
+  },
+
+  "Proton X50": {
+    image: gambar.x50,
+    variants: [
+      { name: "Executive", minSalary: 2800, price: 92600, loan90: 959, fullLoan: 1065 },
+      { name: "Premium", minSalary: 3000, price: 105000, loan90: 1087, fullLoan: 1208 },
+      { name: "Flagship", minSalary: 3100, price: 116800, loan90: 1209, fullLoan: 1344 }
+    ]
+  },
+
+  "Proton X70": {
+    image: gambar.x70,
+    variants: [
+      { name: "Executive", minSalary: 3100, price: 110000, loan90: 1106, fullLoan: 1229 },
+      { name: "Premium", minSalary: 3200, price: 123400, loan90: 1241, fullLoan: 1379 }
+    ]
+  },
+
+  "Proton X90": {
+    image: gambar.x90,
+    variants: [
+      { name: "Lite", minSalary: 4100, price: 110000, loan90: 1106, fullLoan: 1229 },
+      { name: "Prime", minSalary: 4200, price: 120300, loan90: 1210, fullLoan: 1344 },
+      { name: "Prime X", minSalary: 4500, price: 126500, loan90: 1272, fullLoan: 1413 }
+    ]
+  }
+
+};
+function kiraBulanan(price) {
+
+  var jadual = {
+    40300: { loan90: 423, fullLoan: 470 },
+    46500: { loan90: 488, fullLoan: 542 },
+    51600: { loan90: 542, fullLoan: 602 },
+
+    58700: { loan90: 590, fullLoan: 656 },
+    61800: { loan90: 621, fullLoan: 690 },
+
+    82300: { loan90: 852, fullLoan: 947 },
+    92600: { loan90: 959, fullLoan: 1065 },
+    97700: { loan90: 1012, fullLoan: 1124 },
+
+    105000: { loan90: 1087, fullLoan: 1208 },
+    116800: { loan90: 1209, fullLoan: 1344 },
+
+    110000: { loan90: 1106, fullLoan: 1229 },
+    123400: { loan90: 1241, fullLoan: 1379 },
+
+    120300: { loan90: 1210, fullLoan: 1344 },
+    126500: { loan90: 1272, fullLoan: 1413 }
+  };
+
+  return jadual[price];
+}
+
+
+
+function semakGaji() {
+
+  var gaji = Number(document.getElementById("salary").value);
+  var result = document.getElementById("result");
+
+  if (!gaji) {
+    result.innerHTML = `
+      <div class="salary">
+        Sila masukkan gaji bersih.
+      </div>
+    `;
+    return;
+  }
+
+  var html = `
+    <div class="table-wrapper">
+      <table class="eligibility-table">
+
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Status</th>
+            <th>Variant Layak</th>
+            <th>Anggaran Bulanan</th>
+          </tr>
+        </thead>
+
+        <tbody>
+  `;
+
+  Object.keys(carData).forEach(function(model) {
+
+    var data = carData[model];
+
+    var layak = data.variants.filter(function(variant) {
+      return gaji >= variant.minSalary;
+    });
+
+    var status = layak.length > 0
+      ? '<span class="status-yes">LULUS</span>'
+      : '<span class="status-no">GAGAL</span>';
+
+    var variantText = "";
+    var monthlyText = "";
+
+    if (layak.length > 0) {
+
+      layak.forEach(function(variant) {
+
+        variantText += `
+          <span class="variant-pill">
+            ${variant.name}
+          </span>
+        `;
+
+        var bayaran = kiraBulanan(variant.price);
+
+        monthlyText += `
+          <div class="monthly-small">
+  <span style="color:#15803D; font-size:11px; font-weight:600;">
+    RM${bayaran.loan90.toLocaleString()}
+  </span>
+
+  <span style="color:#999; margin:0 8px;">
+    |
+  </span>
+
+  <span style="color:#1D4ED8; font-size:11px; font-weight:600;">
+    RM${bayaran.fullLoan.toLocaleString()}
+  </span>
+</div>
+        `;
+
+      });
+
+    } else {
+
+      variantText = `
+        <span class="no-variant">
+          Tiada
+        </span>
+      `;
+
+      monthlyText = `
+        <div class="monthly-small no-variant">
+          Tiada
+        </div>
+      `;
+
+    }
+
+    html += `
+      <tr>
+
+        <td>
+          <div class="model-cell">
+
+            <div class="car-animation">
+              <img
+                src="https://drive.google.com/thumbnail?id=${data.image}&sz=w1000"
+                class="table-car-image"
+              >
+            </div>
+
+            <strong>${model.replace("Proton ", "")}</strong>
+
+          </div>
+        </td>
+
+        <td>
+          ${status}
+        </td>
+
+        <td>
+          ${variantText}
+        </td>
+
+        <td>
+          ${monthlyText}
+        </td>
+
+      </tr>
+    `;
+
+  });
+
+  html += `
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      *Anggaran bayaran berdasarkan kadar pembiayaan semasa.
+      Tertakluk kepada kelulusan bank dan terma semasa.
+    </div>
+  `;
+
+  result.innerHTML = html;
+}
+
+window.semakGaji = semakGaji;
+</script>
+
+</body>
+
+</html>
