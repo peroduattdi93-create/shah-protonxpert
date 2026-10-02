@@ -1350,6 +1350,51 @@ body::before {
   z-index: -1;
   pointer-events: none;
 }
+ /* ANIMASI KERETA DALAM JADUAL */
+
+.car-animation {
+  position: relative;
+  width: 90px;
+  height: 55px;
+  margin: 0 auto 5px auto;
+  overflow: hidden;
+}
+
+/* PLATFORM / JALAN */
+.car-animation::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  height: 6px;
+  background: #555;
+  border-radius: 6px;
+}
+
+/* KERETA */
+.car-animation .table-car-image {
+  position: absolute;
+  z-index: 2;
+  width: 75px !important;
+  height: 45px !important;
+  object-fit: contain !important;
+  left: 0;
+  top: 0;
+  mix-blend-mode: multiply;
+  animation: keretaJalan 2.5s ease-in-out infinite alternate;
+}
+
+/* GERAK KIRI KANAN */
+@keyframes keretaJalan {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 12px;
+  }
+} 
 </style>
 
 </head>
